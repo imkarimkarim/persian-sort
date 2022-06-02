@@ -1,8 +1,8 @@
 version: "2"
 services:
   node:
-    image: "psort"
+    image: "node"
+    command: sh -c "yarn install && yarn start"
     working_dir: /home/node/persian-sort
     volumes:
       - ./:/home/node/persian-sort
-    command: "yarn start"
