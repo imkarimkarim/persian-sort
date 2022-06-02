@@ -1,7 +1,7 @@
 version: "2"
 services:
   node:
-    image: "node"
+    image: "psort"
     working_dir: /home/node/persian-sort
     volumes:
       - ./:/home/node/persian-sort

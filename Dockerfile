@@ -1,5 +1,5 @@
 FROM node
-WORKDIR /persian-sort
+WORKDIR /home/node/persian-sort
 COPY . .
-RUN yarn
+RUN yarn install
 CMD ["yarn", "start"]
