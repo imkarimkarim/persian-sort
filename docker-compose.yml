@@ -1,0 +1,8 @@
+version: "2"
+services:
+  node:
+    image: "node"
+    working_dir: /home/node/persian-sort
+    volumes:
+      - ./:/home/node/persian-sort
+    command: "yarn start"
