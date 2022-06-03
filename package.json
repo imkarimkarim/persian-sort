@@ -4,7 +4,7 @@
   "description": "sort by persian alphabet order",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --legacy-watch index.js"
+    "start": "nodemon --legacy-watch src/index.js"
   },
   "author": "imkarimkarim",
   "license": "MIT",
