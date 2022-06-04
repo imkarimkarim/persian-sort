@@ -103,7 +103,7 @@ const sortGroupItems = (group) => {
 };
 
 // main function
-const pSort = (wordsList) => {
+const psort = (wordsList) => {
   if (!wordsList) {
     return false;
   }
@@ -124,39 +124,4 @@ const pSort = (wordsList) => {
   return [...tmp, ...otherList];
 };
 
-const testArr = [
-  "Yazd",
-  "yazd",
-  "یزد",
-  "جادی",
-  "ریکت",
-  "گوگل",
-  "اسلایمم",
-  "ع",
-  "عمه",
-  "رامین",
-  "",
-  "خدیجه",
-  "ه",
-  "خ",
-  "x",
-  ",",
-  "?",
-  "خاله",
-  "مهشید",
-  "مهشدی",
-  "karim",
-  "w",
-  1,
-  2,
-  3,
-  3,
-  4,
-];
-
-console.log(pSort(testArr));
-
-// TODO: pSort
-// TODO: module...
-// TODO: share/packaging
-// TODO: readme
+module.exports = psort;
