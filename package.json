@@ -1,6 +1,6 @@
 {
   "name": "persian-sort",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "sort arrays by Persian alphabetic order",
   "main": "src/index.js",
   "scripts": {
