@@ -3,7 +3,9 @@
 const { alphabet } = require("./alphabet");
 
 const isInAlphabet = (letter) => {
-  if (!letter) return false;
+  if (!letter) {
+    return false;
+  }
   letter = letter.toString();
   if (alphabet[letter[0]] === undefined) {
     return false;
@@ -60,15 +62,22 @@ const groupByFirstLetter = (list) => {
   if (!list) {
     return false;
   }
-  let groups = {};
+  let groups = {
+    persian: {},
+    other: [],
+  };
   for (let i = 0; i < list.length; i++) {
     let word = list[i];
     // fL stands for first letter of the word
     let fL = word[0];
-    if (groups[fL] === undefined) {
-      groups[fL] = [word];
+    if (isInAlphabet(fL)) {
+      if (groups.persian[fL] === undefined) {
+        groups.persian[fL] = [word];
+      } else {
+        groups.persian[fL].push(word);
+      }
     } else {
-      groups[fL].push(word);
+      groups.other.push(word);
     }
   }
   return groups;
@@ -93,23 +102,29 @@ const sortGroupItems = (group) => {
   return group.sort(wordCompare);
 };
 
+// main function
 const pSort = (wordsList) => {
   if (!wordsList) {
     return false;
   }
-  let res = [];
   wordsList = groupByFirstLetter(wordsList);
-  wordsList = sortTheGroups(wordsList);
-  for (const key in wordsList) {
-    wordsList[key] = sortGroupItems(wordsList[key]);
-    for (let i = 0; i < wordsList[key].length; i++) {
-      res.push(wordsList[key][i]);
+  let persianList = wordsList.persian;
+  let otherList = wordsList.other;
+  persianList = sortTheGroups(persianList);
+
+  let tmp = [];
+  for (const key in persianList) {
+    persianList[key] = sortGroupItems(persianList[key]);
+    for (let i = 0; i < persianList[key].length; i++) {
+      tmp.push(persianList[key][i]);
     }
   }
-  return res;
+  otherList = otherList.sort();
+
+  return [...tmp, ...otherList];
 };
 
-const test = [
+const testArr = [
   "Yazd",
   "yazd",
   "یزد",
@@ -119,6 +134,9 @@ const test = [
   "اسلایمم",
   "ع",
   "عمه",
+  "رامین",
+  "",
+  "خدیجه",
   "ه",
   "خ",
   "x",
@@ -136,11 +154,9 @@ const test = [
   4,
 ];
 
-console.log(pSort(test));
+console.log(pSort(testArr));
 
 // TODO: pSort
-
 // TODO: module...
 // TODO: share/packaging
 // TODO: readme
-// TODO: seperate persian words from otherwords and others.sort()
