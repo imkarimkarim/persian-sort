@@ -1,13 +1,30 @@
 {
   "name": "persian-sort",
-  "version": "0.0.0",
-  "description": "sort by persian alphabet order",
+  "version": "1.0.0",
+  "description": "sort arrays by Persian alphabetic order",
   "main": "index.js",
   "scripts": {
     "start": "nodemon --legacy-watch src/index.js"
   },
-  "author": "imkarimkarim",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imkarimkarim/persian-sort.git"
+  },
+  "keywords": [
+    "sort",
+    "persian",
+    "psort",
+    "farsi"
+  ],
+  "author": "imkarimkarim <allalirezamail@gmail.com> (https://github.com/imkarimkarim)",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/imkarimkarim/persian-sort/issues"
+  },
+  "homepage": "https://github.com/imkarimkarim/persian-sort#readme",
+  "engines": {
+    "node": ">= 18.2.0"
+ },
   "devDependencies": {
     "nodemon": "^2.0.16"
   }
